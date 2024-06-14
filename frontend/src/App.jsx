@@ -8,7 +8,7 @@ function App() {
   const fetchTodos = async () => {
     try {
       // const response = await fetch("http://localhost:3000/todos");
-      const response = await fetch("advance-todo-server-iota.vercel.app/todos");
+      const response = await fetch("https://advance-todo-server-iota.vercel.app/todos");
       if (response.ok) {
         const data = await response.json();
         setTodos(data.todos);
