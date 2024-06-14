@@ -3,7 +3,8 @@ import React from 'react';
 export default function Todos({ todos, setTodos }) {
     const markAsCompleted = async (id) => {
         try {
-            const response = await fetch("http://localhost:3000/completed", {
+            // const response = await fetch("http://localhost:3000/completed", {
+            const response = await fetch("https://advance-todo-server-iota.vercel.app/completed", {
                 method: "PUT",
                 body: JSON.stringify({ id }),
                 headers: {
@@ -31,7 +32,8 @@ export default function Todos({ todos, setTodos }) {
         if (!newTask || !newDescription) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/todo/${id}`, {
+            // const response = await fetch(`http://localhost:3000/todo/${id}`, {
+              const response = await fetch(`https://advance-todo-server-iota.vercel.app/todo/${id}`, {
                 method: "PUT",
                 body: JSON.stringify({ task: newTask, description: newDescription }),
                 headers: {
@@ -57,7 +59,8 @@ export default function Todos({ todos, setTodos }) {
         if (!window.confirm("Are you sure you want to delete this todo?")) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/todo/${id}`, {
+            // const response = await fetch(`http://localhost:3000/todo/${id}`, {
+              const response = await fetch(`https://advance-todo-server-iota.vercel.app/todo/${id}`, {
                 method: "DELETE"
             });
             if (response.ok) {
