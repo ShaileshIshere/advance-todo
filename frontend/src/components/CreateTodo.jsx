@@ -7,7 +7,7 @@ export default function CreateTodo({ addTodoToList }) {
     const handleAddTodo = async () => {
         try {
             // const response = await fetch("http://localhost:3000/todo", {
-              const response = await fetch("advance-todo-zeta.vercel.app/todo", {
+              const response = await fetch("advance-todo-server-iota.vercel.app/todo", {
                 method: "POST",
                 body: JSON.stringify({
                     task: task,
