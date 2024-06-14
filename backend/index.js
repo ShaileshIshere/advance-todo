@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 // const allowedOrigins = ['http://localhost:5713', 'http://localhost:5173'];
-const allowedOrigins = 'https://advance-todo-server-iota.vercel.app/';
+const allowedOrigins = ['https://advance-todo-server-iota.vercel.app/', 'https://advance-todo-zeta.vercel.app/'];
 app.use(cors({
     origin: function(origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
