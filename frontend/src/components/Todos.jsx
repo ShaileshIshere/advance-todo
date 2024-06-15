@@ -1,4 +1,7 @@
 import React from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 export default function Todos({ todos, setTodos }) {
 
@@ -183,19 +186,19 @@ export default function Todos({ todos, setTodos }) {
                             onClick={() => markAsCompleted(todo._id)}
                             className={`px-4 py-2 rounded ${todo.completed ? 'bg-green-500' : 'bg-gray-300 dark:bg-gray-700 dark:text-white'}`}
                         >
-                            {todo.completed ? "Completed" : "Mark as completed"}
+                            {todo.completed ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
                         </button>
                         <button
                             onClick={() => editTodo(todo._id)}
                             className="bg-yellow-500 text-white px-4 py-2 rounded"
                         >
-                            Edit
+                            <EditNoteIcon />
                         </button>
                         <button
                             onClick={() => deleteTodo(todo._id)}
                             className="bg-red-500 text-white px-4 py-2 rounded"
                         >
-                            Delete
+                            <DeleteIcon />
                         </button>
                     </div>
                 </div>

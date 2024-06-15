@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import CreateTodo from './components/CreateTodo.jsx';
 import Todos from './components/Todos.jsx';
-import ThemeToggle from './components/ThemeToggle.jsx';
+import './index.css';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -39,6 +41,7 @@ function App() {
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark', !isDarkMode);  // Toggle the 'dark' class on the root element
   };
 
   return (
@@ -49,14 +52,14 @@ function App() {
     //   <Todos todos={todos} setTodos={setTodos} />
     // </div>
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      <div className={`p-4 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+      <div className="p-4 bg-white dark:bg-gray-800 dark:text-white min-h-screen">
         <div className="flex justify-between mb-4">
-          <h1 className="text-3xl font-bold">Todo App</h1>
+          <h1 className="text-3xl font-bold">Todo App by Shailesh Kandari</h1>
           <button
             onClick={toggleDarkMode}
-            className="bg-gray-500 text-white px-4 py-2 rounded"
+            className={`text-white px-4 py-2 rounded ${isDarkMode ? 'text-white' : 'text-black'}`}
           >
-            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
           </button>
         </div>
         <CreateTodo addTodoToList={addTodoToList} />

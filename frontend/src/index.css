@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom dark mode styling for the entire page */
+.dark body {
+    background-color: #1a202c; /* Tailwind's gray-900 */
+    color: #f7fafc; /* Tailwind's gray-100 */
+}
