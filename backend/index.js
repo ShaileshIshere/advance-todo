@@ -7,19 +7,20 @@ const app = express();
 app.use(express.json());
 
 // const allowedOrigins = ['http://localhost:5713', 'http://localhost:5173'];
-const allowedOrigins = ['https://advance-todo-server-iota.vercel.app', 'https://advance-todo-zeta.vercel.app'];
+const allowedOrigins = ['https://advance-todo-server-iota.vercel.app', 'https://advance-todo-zeta.vercel.app', 'https://advance-todo-xi.vercel.app/'];
 app.use(cors({
     origin: function(origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
+            callback(null, true); // allows the request
         } else {
-            callback(new Error('Not allowed by CORS'));
+            callback(new Error('Not allowed by CORS')); // blocks the request
         }
     }
 }));
 
 const PORT = 3000;
 
+// we're creating a todo task here
 app.post("/todo", async (req, res) => {
     const createPayload = req.body;
     const parsedPayload = createTodo.safeParse(createPayload);
@@ -49,6 +50,7 @@ app.post("/todo", async (req, res) => {
     }
 });
 
+// here we're accessing all todo tasks
 app.get("/todos", async (req, res) => {
     try {
         const todos = await todo.find({});
@@ -61,6 +63,7 @@ app.get("/todos", async (req, res) => {
     }
 });
 
+// here we're marking todo tasks as completed
 app.put("/completed", async (req, res) => {
     const updatePayload = req.body;
     const parsedPayload = updateTodo.safeParse(updatePayload);
