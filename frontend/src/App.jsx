@@ -57,7 +57,7 @@ function App() {
           <h1 className="text-3xl font-bold">Todo App by Shailesh Kandari</h1>
           <button
             onClick={toggleDarkMode}
-            className={`text-white px-4 py-2 rounded ${isDarkMode ? 'text-white' : 'text-black'}`}
+            className={`text-black px-4 py-2 rounded ${isDarkMode ? 'text-white' : 'text-black'}`}
           >
             {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
           </button>
