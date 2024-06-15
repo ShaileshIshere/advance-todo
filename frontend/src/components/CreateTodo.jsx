@@ -33,23 +33,27 @@ export default function CreateTodo({ addTodoToList }) {
     };
 
     return (
-        <div>
+        <div className="mb-4">
             <input
                 type="text"
-                placeholder="task"
+                placeholder="Task"
+                className="border border-gray-300 p-2 rounded mb-2 w-full dark:bg-gray-700 dark:text-white dark:border-gray-600"
                 onChange={(event) => setTask(event.target.value)}
                 value={task}
             />
-            <br />
             <input
                 type="text"
-                placeholder="description"
+                placeholder="Description"
+                className="border border-gray-300 p-2 rounded mb-2 w-full dark:bg-gray-700 dark:text-white dark:border-gray-600"
                 onChange={(event) => setDescription(event.target.value)}
                 value={description}
             />
-            <br />
-            {/* The button has an 'onClick' event handler that calls 'handleAddTodo' to add the new todo item when clicked */}
-            <button onClick={handleAddTodo}>Add</button>
+            <button
+                onClick={handleAddTodo}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+                Add
+            </button>
         </div>
     );
 }

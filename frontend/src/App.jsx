@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import CreateTodo from './components/CreateTodo.jsx';
 import Todos from './components/Todos.jsx';
+import ThemeToggle from './components/ThemeToggle.jsx';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const fetchTodos = async () => {
     try {
@@ -35,10 +37,31 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div>
-      <CreateTodo addTodoToList={addTodoToList} />
-      <Todos todos={todos} setTodos={setTodos} />
+    // <div className="container mx-auto p-4 max-w-md">
+    //   <h1 className="text-3xl font-bold text-red-600 text-center mb-4">To - Do's</h1>
+    //   <ThemeToggle />
+    //   <CreateTodo addTodoToList={addTodoToList} />
+    //   <Todos todos={todos} setTodos={setTodos} />
+    // </div>
+    <div className={`container mx-auto p-4 max-w-md ${isDarkMode ? 'dark' : ''}`}>
+      <div className={`p-4 rounded ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+        <div className="flex justify-between mb-4">
+          <h1 className="text-3xl font-bold">Todo App</h1>
+          <button
+            onClick={toggleDarkMode}
+            className="bg-gray-500 text-white px-4 py-2 rounded"
+          >
+            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        </div>
+        <CreateTodo addTodoToList={addTodoToList} />
+        <Todos todos={todos} setTodos={setTodos} />
+      </div>
     </div>
   );
 }

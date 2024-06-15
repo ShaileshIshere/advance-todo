@@ -173,14 +173,31 @@ export default function Todos({ todos, setTodos }) {
     return (
         <div>
             {todos.map((todo) => (
-                <div key={todo._id}>
-                    <h1>{todo.task}</h1>
-                    <h2>{todo.description}</h2>
-                    <button onClick={() => markAsCompleted(todo._id)}>
-                        {todo.completed ? "Completed" : "Mark as completed"}
-                    </button>
-                    <button onClick={() => editTodo(todo._id)}>Edit</button>
-                    <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+                <div key={todo._id} className="border-b border-gray-300 p-2 flex justify-between items-center dark:border-gray-700">
+                    <div>
+                        <h1 className={`text-xl ${todo.completed ? 'line-through text-gray-500' : 'dark:text-white'}`}>{todo.task}</h1>
+                        <h2 className="text-gray-700 dark:text-gray-400">{todo.description}</h2>
+                    </div>
+                    <div className="flex space-x-2">
+                        <button
+                            onClick={() => markAsCompleted(todo._id)}
+                            className={`px-4 py-2 rounded ${todo.completed ? 'bg-green-500' : 'bg-gray-300 dark:bg-gray-700 dark:text-white'}`}
+                        >
+                            {todo.completed ? "Completed" : "Mark as completed"}
+                        </button>
+                        <button
+                            onClick={() => editTodo(todo._id)}
+                            className="bg-yellow-500 text-white px-4 py-2 rounded"
+                        >
+                            Edit
+                        </button>
+                        <button
+                            onClick={() => deleteTodo(todo._id)}
+                            className="bg-red-500 text-white px-4 py-2 rounded"
+                        >
+                            Delete
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>
