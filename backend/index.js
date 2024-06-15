@@ -79,7 +79,7 @@ app.put("/completed", async (req, res) => {
         const updatedTodo = await todo.findByIdAndUpdate(
             req.body.id,
             { completed: true },
-            { new: true }
+            { new: true } // this ensures that the updated document is returned
         );
         if (updatedTodo) {
             res.json({
@@ -107,7 +107,7 @@ app.put("/todo/:id", async (req, res) => {
         const updatedTodo = await todo.findByIdAndUpdate(
             req.params.id,
             { task, description },
-            { new: true }
+            { new: true } // this ensures that the updated document is returned, not the original document before the update
         );
         if (updatedTodo) {
             res.json({
