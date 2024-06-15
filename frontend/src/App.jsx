@@ -48,8 +48,8 @@ function App() {
     //   <CreateTodo addTodoToList={addTodoToList} />
     //   <Todos todos={todos} setTodos={setTodos} />
     // </div>
-    <div className={`container mx-auto p-4 max-w-md ${isDarkMode ? 'dark' : ''}`}>
-      <div className={`p-4 rounded ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
+      <div className={`p-4 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
         <div className="flex justify-between mb-4">
           <h1 className="text-3xl font-bold">Todo App</h1>
           <button

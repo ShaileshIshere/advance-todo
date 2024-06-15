@@ -33,7 +33,7 @@ export default function CreateTodo({ addTodoToList }) {
     };
 
     return (
-        <div className="mb-4">
+        <div className="mb-4 w-full">
             <input
                 type="text"
                 placeholder="Task"
